@@ -1,0 +1,22 @@
+services:
+  nginx:
+    image: nginx:alpine-slim
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - 127.0.0.1:80:80
+  app1:
+    build:
+      dockerfile: ./flask.dockerfile
+    volumes:
+      - ./app1:/app
+  app2:
+    build:
+      dockerfile: ./flask.dockerfile
+    volumes:
+      - ./app2:/app
+  home:
+    build:
+      dockerfile: ./flask.dockerfile
+    volumes:
+      - ./home:/app
